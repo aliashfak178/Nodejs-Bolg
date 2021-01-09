@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="./assets/css/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <%- include("components/nev.ejs")  %> 
+     <div class="profile">
+         <div class="profile-cart">
+             <div class="profile-image"> <span><%= user.name.charAt(0) %> </span></div>
+                 <div class="profile-name"><%= user.name %> </div>
+                 <div class="profile-email"><%= user.email %> </div>
+             
+         </div>
+     </div>
+</body>
+</html>

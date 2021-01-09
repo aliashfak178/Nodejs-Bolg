@@ -1,0 +1,29 @@
+{
+  "name": "node-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ashfaque-Ali",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "connect-mongodb-session": "^2.4.1",
+    "dateformat": "^3.0.3",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.1",
+    "formidable": "^1.2.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.8",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

@@ -1,0 +1,61 @@
+<div class="messages">
+    <% if(locals.message.success) { %>
+        <div class="alert-seccess"><%=message.success  %> </div>
+    <% } %> 
+</div>
+
+<div class="post-container">
+    <div class="row">
+    <% if(posts.length > 0) { %>
+        <% posts.forEach((post) =>{ %> 
+            <div class="col-3 pd-20">
+                <div class="post">
+                    <div class="post-img">
+                        <img src="/assets/img/<%= post.image %>" alt="">
+                    </div>
+                    <div class="post-title">
+                        <h4><a href="/details/<%= post._id%>"><%= post.title %> </a></h4>
+                    </div>
+                    <div class="post-body">
+                        <%= post.body.slice(0, 80) %>...
+                    </div>
+                    <div class="postfooter">
+                        <span class="creater"><%= post.userName %> </span>
+                        <span class="post-time"><%= formate(post.updatedAt,"d,mmmm,yyyy") %> </span>
+                    </div>
+                </div>
+            </div>
+        <% }) %> 
+    <% }else { %> 
+        <p>404 page Not Found</p>
+    <% } %>  
+    </div>
+    <% 
+        let totalPages = Math.ceil(count/perPage);
+        let startLoop = currantPage;
+        let diff = totalPages - currantPage;
+        if(diff <= 4){
+            startLoop = totalPages - 4;
+        }
+        let endLoop = parseInt(startLoop) + 4;
+        if(startLoop <= 0){
+            startLoop = 1;
+        }
+    %> 
+    <% if(count > 4 && posts.length !== 0) {%> 
+    <div class="pegination">
+        <ul>
+        <% if(currantPage > 1) { %>
+            <li><a href="/post/<%= currantPage - 1 %> " class="prev">Prev</a></li>
+        <% } %>
+
+        <% for(let i=startLoop; i<= endLoop; i++) { let active = i == currantPage ?  'active' : ''%>
+            <li><a href="/post/<%= i %> " class="<%= active %>"><%= i %></a></li>
+        <% } %> 
+        <% if(currantPage < totalPages) {%>
+            <li><a href="/post/<%= parseInt(currantPage) + 1 %> " class="prev">Next</a></li>
+        <% } %>   
+        </ul>     
+    </div> 
+     <% } %> 
+</div>

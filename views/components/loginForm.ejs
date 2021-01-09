@@ -1,0 +1,28 @@
+<div class="form-container">
+    <% if(locals.message.success) { %>
+        <div class="alert-seccess"><%=message.success  %> </div>
+    <% } %> 
+    <% if(errors.length > 0) { %>
+        <div class="errors">
+            <% errors.forEach(error =>{ %>
+                <span class="error"><%= error.msg %> </span>
+            <% }) %>  
+        </div>
+    <% } %>  
+    <form class="account" action="/postLogin" method="POST">
+        <div class="group">
+            <h3>User Login</h3>
+        </div>
+        <div class="group">
+            <label for="email">Email</label>
+            <input type="email" class="control" name="email" id="email" placeholder="Email" value=<% if(inputs) { %> <%= inputs.email %> <% } %>>
+        </div>
+        <div class="group">
+            <label for="password">Password</label>
+            <input type="password" class="control" name="password" id="password" placeholder="Password" autocomplete="off" value=<% if(inputs) { %> <%= inputs.password %> <% } %>>
+        </div>
+        <div class="group">
+            <input type="submit" class="submit-btn" value="Login">
+        </div>
+    </form>
+</div>

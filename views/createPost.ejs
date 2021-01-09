@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= titles %></title>
+    <link rel="stylesheet" href="./assets/css/app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <%- include("components/nev.ejs")  %> 
+     <div class="post-Form-Controller">
+        <% if(error.length > 0) { %>
+            <div class="errors errors-helper">
+                <% error.forEach(errors =>{ %>
+                    <span class="error"><%= errors.msg %> </span>
+                <% }) %>  
+            </div>
+        <% } %> 
+         <%- include("components/postForm.ejs")  %> 
+     </div>
+
+     <script>
+         const imageName= document.getElementById("ImageLable");
+         const label= document.querySelector(".file-Lable");
+         imageName.addEventListener("change",()=>{
+             let val=imageName.value;
+             let split= val.split("\\");
+             let index=split.length - 1;
+             label.innerText = split[index];
+         })
+     </script>
+</body>
+</html>
