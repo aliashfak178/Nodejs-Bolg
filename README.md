@@ -1,5 +1,5 @@
 # Nodejs-Bolg
-This is My First Node JS Blog
+Node js Blog website. In this project i covered all topics that topics used in real world web development like creating login and registration page how to store sessions and cookies etc.
 
 <p align="center">
 
